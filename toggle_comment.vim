@@ -45,5 +45,14 @@ function! Comment_on()
 
         silent s/\(^.*$\)/# \1/
     endif
+endfunction
 
+
+function! Comment_off()
+    let ft = &filetype
+    if ft == 'php' || ft == 'ruby' || ft == 'sh' || ft == 'make' 
+        \ || ft == 'python' || ft == 'perl' || ft == 'yaml' || ft == 'yml'
+
+        silent s/\(^# \)\(.*$\)/\2/
+    endif
 endfunction
