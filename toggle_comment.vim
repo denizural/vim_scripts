@@ -1,7 +1,7 @@
 " Deniz, 29/9/2020
 " Toggles the comments on and off. Supports multiple visual lines
 
-map gC :call Toggle_comment()<CR>
+"map gC :call Toggle_comment()<CR>
 
 function! Toggle_comment()
     let ft = &filetype
