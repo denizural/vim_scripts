@@ -1,6 +1,9 @@
 " Deniz, 29/9/2020
 " Toggles the comments on and off. Supports multiple visual lines
 
+" TODO:
+" - support for other languages: C, C++, Fortran, ...
+
 "map gC :call Toggle_comment()<CR>
 
 function! Toggle_comment()
@@ -32,9 +35,15 @@ function! Toggle_comment()
             silent s/\(^ *\)\(.*\)$/\1# \2/
         endif
     endif
+endfunction
 
-    " TODO:
-    " - support for other languages: C, C++, Fortran, ...
 
+function! Comment_on()
+    let ft = &filetype
+    if ft == 'php' || ft == 'ruby' || ft == 'sh' || ft == 'make' 
+        \ || ft == 'python' || ft == 'perl' || ft == 'yaml' || ft == 'yml'
+
+        silent s/\(^.*$\)/# \1/
+    endif
 
 endfunction
